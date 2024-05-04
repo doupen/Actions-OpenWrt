@@ -1,0 +1,6 @@
+内核版本切换 CONFIG_LINUX
+amule CONFIG_PACKAGE_luci-app-amule
+      CONFIG_PACKAGE_luci-i18n-amule-zh-cn
+      CONFIG_PACKAGE_amule=y
+      CONFIG_PACKAGE_libcryptopp
+      
