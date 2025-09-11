@@ -1,0 +1,31 @@
+name: test
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+env:
+  #REPO_URL: https://archive.org/compress/ddrkirbyisq-discography
+  #REPO_FILENAME: DDRKirby(ISQ).zip
+  REPO_URL: https://ia600600.us.archive.org/19/items/ddrkirbyisq-discography/DDRKirby%28ISQ%29%20-%20Potpourri%20Mix%20-%20Volume%201.zip
+  REPO_FILENAME: DDRKirby(ISQ).zip
+  UPLOAD_FILE: true
+
+jobs:
+  get: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get Ready
+      run: |
+        sudo chmod 777 /mnt
+    
+    - name: Get
+      working-directory: /mnt
+      run: |
+        wget -nv -O  $REPO_FILENAME $REPO_URL
+
+    - name: Upload
+      uses: actions/upload-artifact@main
+      with:
+        path: ${{ REPO_FILENAME }}
