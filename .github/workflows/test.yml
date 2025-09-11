@@ -6,6 +6,7 @@ on:
 
 env:
   REPO_URL: https://archive.org/compress/ddrkirbyisq-discography
+  REPO_FILENAME: DDRKirby(ISQ).zip
   UPLOAD_FILE: true
 
 jobs:
@@ -20,9 +21,10 @@ jobs:
     - name: Get
       working-directory: /mnt
       run: |
-        curl -O $REPO_URL
+        curl -O $REPO_FILENAME $REPO_URL
 
     - name: Upload
       uses: actions/upload-artifact@main
       with:
-        path: /mnt/*.*
+        name: $REPO_FILENAME
+        path: /mnt
