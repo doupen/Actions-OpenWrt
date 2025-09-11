@@ -5,7 +5,9 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://archive.org/compress/ddrkirbyisq-discography
+  #REPO_URL: https://archive.org/compress/ddrkirbyisq-discography
+  #REPO_FILENAME: DDRKirby(ISQ).zip
+  REPO_URL: https://ia600600.us.archive.org/19/items/ddrkirbyisq-discography/DDRKirby%28ISQ%29%20-%20Potpourri%20Mix%20-%20Volume%201.zip
   REPO_FILENAME: DDRKirby(ISQ).zip
   UPLOAD_FILE: true
 
