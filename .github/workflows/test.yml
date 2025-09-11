@@ -20,7 +20,7 @@ jobs:
     - name: Get
       working-directory: /mnt
       run: |
-        get $REPO_URL
+        curl -O $REPO_URL
 
     - name: Upload
       uses: actions/upload-artifact@main
