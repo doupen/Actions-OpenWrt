@@ -17,17 +17,13 @@ jobs:
 
     steps:
     - name: Get Ready
-      run: |
-        sudo chmod 777 /mnt
+      run: sudo chmod 777 /mnt
     
     - name: Get
       working-directory: /mnt
-      run: |
-        wget -nv -O  $REPO_FILENAME $REPO_URL
+      run: wget -nv -O  $REPO_FILENAME $REPO_URL
 
     - name: Upload
-      run: |
-      cd /mnt
       uses: actions/upload-artifact@main
       with:
         path: /mnt/${{ env.REPO_FILENAME }}
