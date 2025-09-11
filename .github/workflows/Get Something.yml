@@ -1,0 +1,24 @@
+name: Get Something
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+env:
+  SET_URL: https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/intelssd_2m3_fw_update.zip
+  SET_FILENAME: 2m3.zip
+
+jobs:
+  get: 
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Getting
+      working-directory: /mnt
+      run: wget -nv -O  $SET_FILENAME $SET_URL
+
+    - name: Upload
+      uses: actions/upload-artifact@main
+      with:
+        name: Express
+        path: /mnt/${{ env.SET_FILENAME }}
