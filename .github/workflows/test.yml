@@ -28,4 +28,4 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@main
       with:
-        path: ${{ REPO_FILENAME }}
+        path: ${{ $REPO_FILENAME }}
