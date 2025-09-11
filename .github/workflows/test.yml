@@ -23,7 +23,7 @@ jobs:
     - name: Get
       working-directory: /mnt
       run: |
-        wget -O $REPO_FILENAME $REPO_URL
+        wget -Onv $REPO_FILENAME $REPO_URL
 
     - name: Upload
       uses: actions/upload-artifact@main
