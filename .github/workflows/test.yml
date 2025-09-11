@@ -1,0 +1,28 @@
+name: test
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+env:
+  REPO_URL: https://archive.org/compress/ddrkirbyisq-discography
+  UPLOAD_FILE: true
+
+jobs:
+  get: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get Ready
+      run: |
+        sudo chmod 777 /mnt
+    
+    - name: Get
+      working-directory: /mnt
+      run: |
+        curl $REPO_URL
+
+    - name: Upload
+      uses: actions/upload-artifact@main
+      with:
+        patch: /mnt/*.*
