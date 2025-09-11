@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: Getting
       working-directory: /mnt
-      run: wget -nv -O  $SET_FILENAME $SET_URL
+      run: sudo wget -nv -O  $SET_FILENAME $SET_URL
 
     - name: Upload
       uses: actions/upload-artifact@main
