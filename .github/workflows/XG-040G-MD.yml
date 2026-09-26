@@ -67,10 +67,10 @@ jobs:
     - name: Install feeds
       run: cd ponwrt && ./scripts/feeds install -a
 
-    #- name: Load custom configuration
-      #run: |
-        #[ -e files ] && mv files immortalwrt/files
-        #[ -e $CONFIG_FILE ] && mv $CONFIG_FILE immortalwrt/.config
+    - name: Load custom configuration
+      run: |
+        [ -e files ] && mv files ponwrt/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE ponwrt/.config
         #chmod +x $DIY_P2_SH
         #cd ponwrt
         #$GITHUB_WORKSPACE/$DIY_P2_SH
