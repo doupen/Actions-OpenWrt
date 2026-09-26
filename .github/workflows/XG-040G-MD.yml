@@ -47,11 +47,11 @@ jobs:
         #sudo chmod 777 /mnt
 
     - name: Clone source code
-      working-directory: /home
+      working-directory: ./home
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH ponwrt
-        ln -sf /home/ponwrt $GITHUB_WORKSPACE/ponwrt
+        ln -sf ./home/ponwrt $GITHUB_WORKSPACE/ponwrt
 
     #- name: Load custom feeds
       #run: |
