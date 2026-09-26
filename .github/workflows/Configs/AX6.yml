@@ -22,7 +22,7 @@ env:
   REPO_URL: https://github.com/VIKINGYFY/immortalwrt
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: AX6.config
+  CONFIG_FILE: Configs/AX6.config
   #DIY_P1_SH: diy-part1.sh
   #DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -70,10 +70,10 @@ jobs:
     - name: Install feeds
       run: cd immortalwrt && ./scripts/feeds install -a
 
-    #- name: Load custom configuration
-      #run: |
-        #[ -e files ] && mv files immortalwrt/files
-        #[ -e $CONFIG_FILE ] && mv $CONFIG_FILE immortalwrt/.config
+    - name: Load custom configuration
+      run: |
+        [ -e files ] && mv files immortalwrt/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE immortalwrt/.config
         #chmod +x $DIY_P2_SH
         #cd immortalwrt
         #$GITHUB_WORKSPACE/$DIY_P2_SH
